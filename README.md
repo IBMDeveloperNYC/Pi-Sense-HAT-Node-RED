@@ -7,6 +7,7 @@
 ## pre-reqs
 Raspberry Pi 2 or 3 - not sure about v4
 [Sense HAT](https://www.adafruit.com/product/2738)
+SSD card ( 8 or 16 Gb should be fine )
 
 ### The Sense HAT is an add-on board for the Raspberry Pi
 
@@ -15,8 +16,10 @@ and to output information using its built-in LED matrix.
 
 We will use it to publish Temperature(Centigrade) and Humidity metrics to [Node-RED](https://nodered.org/) on the [IBM Cloud](https://cloud.ibm.com) - free account!
 
-## This instruction set uses the Raspbian OS 
-* setting up pi with [NOOBS](https://www.raspberrypi.org/documentation/installation/noobs.md)
+It will also display the Temperature(Centigrade) to the matrix screen everytime your `cron` job runs
+
+## These instructions were run on a Raspberry Pi v3 and with the Raspbian OS 
+* Setting up Raspbian on your pi is easiest with [NOOBS](https://www.raspberrypi.org/documentation/installation/noobs.md)
 ## setup the Sense HAT
 * setting up [Sense HAT](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat)
 

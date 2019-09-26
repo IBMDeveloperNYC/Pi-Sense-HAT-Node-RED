@@ -1,0 +1,120 @@
+[
+    {
+       "id":"b981928e.7704",
+       "type":"http in",
+       "z":"a437cbc7.3344b",
+       "name":"sense-hat POST",
+       "url":"/sense-hat",
+       "method":"post",
+       "upload":false,
+       "swaggerDoc":"",
+       "x":120,
+       "y":260,
+       "wires":[
+          [
+             "48952e65.ff6a4",
+             "c99d8c5a.a91178"
+          ]
+       ]
+    },
+    {
+       "id":"48952e65.ff6a4",
+       "type":"http response",
+       "z":"a437cbc7.3344b",
+       "name":"",
+       "statusCode":"200",
+       "headers":{
+          "done":"OK-MRB"
+       },
+       "x":700,
+       "y":260,
+       "wires":[
+ 
+       ]
+    },
+    {
+       "id":"c99d8c5a.a91178",
+       "type":"function",
+       "z":"a437cbc7.3344b",
+       "name":"temp and humidity preparation",
+       "func":"if( msg.payload === false ) {\n    return null;\n}\n    \nvar msg1 = {};\nvar msg2 = {};\nvar msg3 = {};\n\nmsg1.payload = msg.payload.temp*1.00;\nmsg1.topic = \"Centigrade\";\nmsg2.payload = ((msg.payload.temp*1.00) * 9/5) + 32;\nmsg2.topic = \"Farenheit\";\nmsg3.payload = msg.payload.humidity*1.00;\nmsg3.topic = \"Humidity\";\n\nreturn [msg1, msg2, msg3];",
+       "outputs":3,
+       "noerr":0,
+       "x":410,
+       "y":360,
+       "wires":[
+          [
+             "31d46f5a.96bce"
+          ],
+          [
+             "54abc0d5.191c68"
+          ],
+          [
+             "b1b315ff.e31798"
+          ]
+       ]
+    },
+    {
+       "id":"31d46f5a.96bce",
+       "type":"debug",
+       "z":"a437cbc7.3344b",
+       "name":"Centigrade ",
+       "active":true,
+       "tosidebar":true,
+       "console":false,
+       "tostatus":false,
+       "complete":"payload",
+       "targetType":"msg",
+       "x":910,
+       "y":320,
+       "wires":[
+ 
+       ]
+    },
+    {
+       "id":"54abc0d5.191c68",
+       "type":"debug",
+       "z":"a437cbc7.3344b",
+       "name":"Farenheit ",
+       "active":true,
+       "tosidebar":true,
+       "console":false,
+       "tostatus":false,
+       "complete":"payload",
+       "targetType":"msg",
+       "x":900,
+       "y":360,
+       "wires":[
+ 
+       ]
+    },
+    {
+       "id":"b1b315ff.e31798",
+       "type":"debug",
+       "z":"a437cbc7.3344b",
+       "name":"Humidity",
+       "active":true,
+       "tosidebar":true,
+       "console":false,
+       "tostatus":false,
+       "complete":"payload",
+       "targetType":"msg",
+       "x":900,
+       "y":400,
+       "wires":[
+ 
+       ]
+    },
+    {
+       "id":"b98c23c1.0f3bd",
+       "type":"comment",
+       "z":"a437cbc7.3344b",
+       "name":"Getting environmental data off Raspberry Pi 3 with a Sense Hat",
+       "info":"",
+       "x":270,
+       "y":220,
+       "wires":[
+ 
+       ]
+    }
+ ]

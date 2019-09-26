@@ -20,10 +20,11 @@ We will use it to publish Temperature(Centigrade) and Humidity metrics to [Node-
 ## setup the Sense HAT
 * setting up [Sense HAT](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat)
 
-## setup a cron job as root on Raspberry Pi with a SenseHat
+## Open or ssh into your pi, then setup a cron job as root on Raspberry Pi with a SenseHat
 ```sh
 #become root user
 sudo su
+touch /home/pi/sense.log
 crontab -e
 # add the following line to POST updates every 5 or any interval you like, I chose 5 minutes
 echo "5 * * * * /usr/bin/python /home/pi/dev/pi-hat-node-red/push.py >> /home/pi/sense.log 2>&1"
@@ -42,7 +43,8 @@ stat push.py
 echo "push.py should be here"
 ```
 
-### copy the contents of Pi-SenseHat-Ingress.Node-RED.json to your clipboard and paste into your node red flow
-Note your hostname and update the `NODE_RED_HOST_NAME` variable in push.py with your actual hostname 
+### copy the contents of Pi-SenseHat-Ingress.Node-RED.json to your clipboard and paste into your node red editor and deploy it.
+
+### Note your hostname and update the `NODE_RED_HOST_NAME` variable in push.py with your actual hostname 
 
 

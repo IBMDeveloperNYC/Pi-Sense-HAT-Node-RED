@@ -48,6 +48,13 @@ echo "push.py should be here"
 
 ### copy the contents of Pi-SenseHat-Ingress.Node-RED.json to your clipboard and paste into your node red editor and deploy it.
 
-### Note your hostname and update the `NODE_RED_HOST_NAME` variable in push.py with your actual hostname 
+### Note your NodeRED endpoint POST URL and pass that as the first parameter to  push.py  
 
+```sh
+echo "example call"
+python3 push.py https://<<yourNodeRedSubDomainname>>.mybluemix.net/<<your-end-point-path>>
 
+#replace the values in the << >> with valid NodeRED path parts"
+```
+
+ 

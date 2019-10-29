@@ -1,7 +1,7 @@
 # Simple Raspberry Pi - weather reporter ( Temp and Humidity )
 
 
-![Sense HAT image](./pi-Sense-HAT.png)
+![Sense HAT image](https://github.com/IBMDeveloperNYC/Pi-Sense-HAT-Node-RED/blob/master/SenseHat-NodeRED-flat.jpg)
 
 
 ## pre-reqs

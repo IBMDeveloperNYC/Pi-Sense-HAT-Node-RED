@@ -20,7 +20,7 @@ Node-RED is:
 
 ```
 
-> To learn more go to the node-RED website [https://nodered.org/](https://nodered.org/)
+> For in depth information take a look at the [ official Node-RED website https://nodered.org/](https://nodered.org/)
 
 </details>
 

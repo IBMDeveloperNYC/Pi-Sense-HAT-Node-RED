@@ -74,12 +74,7 @@ def getTemp():
             bg=(225,225,230)
 
         mkLetter(L,c,bg)
-        sleep(7)
-        sense.clear()
-        sense.show_message("{} {}".format(str(temp).split('.')[0],"C"), text_colour=c,  scroll_speed=0.9)
         sleep(2)
-        mkLetter(L,c,bg)
-        sleep(7)
         sense.clear()
         return temp
 
@@ -88,10 +83,10 @@ def getHumidity():
     return sense.get_humidity()
 
 if __name__ == '__main__':
-    urlEg_ = "https://<<yourNodeRedSubDomainname>>.mybluemix.net/<<your-end-point-path>>"
+    url_ = "http://pmistrynoderedtest.mybluemix.net/sense-hat"
     if len(sys.argv) != 2:
-        print("pass url to post data to, e.g. {}".format(url-eg))
+        print("pass url to post data to, e.g. {}".format(url_))
     else:
         url_ = sys.argv[1]
 
-        run(url_)
+    run(url_)

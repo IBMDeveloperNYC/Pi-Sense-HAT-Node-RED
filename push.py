@@ -7,12 +7,12 @@ import datetime as dt
 from common import *
 sense = SenseHat()
 
-def run():
+def run(url):
 	print("running")
 
 	t = getTimeStamp()	
 	print(t)
-	callNodeRED({"temp":getTemp(),
+	callNodeRED(url, {"temp":getTemp(),
                      "humidity":getHumidity(),
                      "longitude":getLongitude(),
                      "latitude":getLatitude(),
@@ -24,15 +24,16 @@ def run():
 
 
 	
-def callNodeRED(url):
-        try:
-	    print("About to post to {}".format(url)
-	    r = requests.post(url, data = args)
-	    print(r.status_code)
-	    print(r.json())
-        except Exception as rex:
-            print("error")
-            print(rex)
+def callNodeRED(url, data):
+    try:
+        r = None
+        print("About to post to {}".format(url)
+        r = requests.post(url, data = data)
+        print(r.status_code)
+        print(r.json())
+    except Exception as rex:
+        print("error")
+        print(rex)
 
 def getTimeStamp():
     return dt.datetime.now().strftime("%Y-%m-%d %H:%M")
@@ -89,8 +90,9 @@ def getHumidity():
 if __name__ == '__main__':
 	urlEg_ = "https://<<yourNodeRedSubDomainname>>.mybluemix.net/<<your-end-point-path>>"
 	if len(sys.argv) != 2:
-		print("pass url to post data to, e.g. {}".format(url-eg)
+	    print("pass url to post data to, e.g. {}".format(url-eg)
 	else:
-		url_ = sys.argv[1] 
+	    url_ = sys.argv[1] 
 
-		run(url_)
+        run(url_)
+

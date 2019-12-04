@@ -1,5 +1,5 @@
-# Simple Raspberry Pi - weather reporter 
-## ( Temperature and Humidity )
+# Make a Simple Raspberry Pi weather station 
+
 
 
 ![Sense HAT image](https://github.com/IBMDeveloperNYC/Pi-Sense-HAT-Node-RED/blob/master/SenseHat-NodeRED-flat.jpg)

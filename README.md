@@ -10,13 +10,14 @@ In this hands on workshop you will learn
 
 <details><summary><strong>Learn More about Node-RED</strong></summary>
  
-Node-RED is:
+```Node-RED is:
 
 * Low-code programming tool and framework for event-driven applications
 * a Programming tool for wiring together hardware devices (e.g. IoT), APIs and online services in new and interesting ways
 * provides a browser-based editor that makes it easy to wire together flows using the wide range of nodes in the palette that can be deployed to its runtime in a single-click.
+```
 
-To learn more go to the node-RED website [https://nodered.org/](https://nodered.org/)
+> To learn more go to the node-RED website [https://nodered.org/](https://nodered.org/)
 
 </details>
 

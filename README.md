@@ -4,9 +4,9 @@
 ![Sense HAT image](https://github.com/IBMDeveloperNYC/Pi-Sense-HAT-Node-RED/blob/master/SenseHat-NodeRED-flat.jpg)
 
 ## Introduction
-In this hands on workshop you will learn:
+In this hands on workshop you will learn 3 things:
 
-### The fundametals of Node-RED
+### (1) The fundametals of Node-RED
 
 <details><summary><strong>Learn More about Node-RED</strong></summary>
  
@@ -24,13 +24,21 @@ Node-RED is:
 
 </details>
 
-### How to make a simple home Temerature and Humidty clock that shows local data as well as interacting with Node-RED on the IBM Cloud
+### (2) How to make a simple home Temerature and Humidty clock that shows local data as well as interacting with Node-RED on the IBM Cloud
 
-### a simple approach to programming the senseHat ( a relatively inexpensive rasberry pi Cape )
+### (3) a simple approach to programming the senseHat ( a relatively inexpensive rasberry pi Cape )
 <details><summary><strong>Learn More about the SenseHat</strong></summary>
  
- The sense hat is ... ipsum dolorum ...
-
+ The sense hat is ...
+ 
+ ( a relatively inexpensive rasberry pi Cape )
+ 
+ ```text
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
+dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+```
 </details>
 
 

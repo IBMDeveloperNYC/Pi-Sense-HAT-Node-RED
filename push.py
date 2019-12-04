@@ -8,11 +8,11 @@ from common import *
 sense = SenseHat()
 
 def run(url):
-	print("running")
+    print("running")
 
-	t = getTimeStamp()	
-	print(t)
-	callNodeRED(url, {"temp":getTemp(),
+    t = getTimeStamp()
+    print(t)
+    callNodeRED(url, {"temp":getTemp(),
                      "humidity":getHumidity(),
                      "longitude":getLongitude(),
                      "latitude":getLatitude(),
@@ -23,11 +23,11 @@ def run(url):
 
 
 
-	
+
 def callNodeRED(url, data):
     try:
         r = None
-        print("About to post to {}".format(url)
+        print("About to post to {}".format(url))
         r = requests.post(url, data = data)
         print(r.status_code)
         print(r.json())
@@ -51,9 +51,9 @@ def mkLetter(C, X, O):
 
 def getTemp():
         sense.clear()
-        
-	temp = sense.get_temperature()
-	sense.clear()
+
+        temp = sense.get_temperature()
+        sense.clear()
         bg = (0,0,0)
         c = (255,255,255)
         L = ''
@@ -72,7 +72,7 @@ def getTemp():
             L='C'
             c=(3,32,252)
             bg=(225,225,230)
-        
+
         mkLetter(L,c,bg)
         sleep(7)
         sense.clear()
@@ -81,18 +81,17 @@ def getTemp():
         mkLetter(L,c,bg)
         sleep(7)
         sense.clear()
-	return temp 
+        return temp
 
 def getHumidity():
-	sense.clear()
-	return sense.get_humidity()
+    sense.clear()
+    return sense.get_humidity()
 
 if __name__ == '__main__':
-	urlEg_ = "https://<<yourNodeRedSubDomainname>>.mybluemix.net/<<your-end-point-path>>"
-	if len(sys.argv) != 2:
-	    print("pass url to post data to, e.g. {}".format(url-eg)
-	else:
-	    url_ = sys.argv[1] 
+    urlEg_ = "https://<<yourNodeRedSubDomainname>>.mybluemix.net/<<your-end-point-path>>"
+    if len(sys.argv) != 2:
+        print("pass url to post data to, e.g. {}".format(url-eg))
+    else:
+        url_ = sys.argv[1]
 
         run(url_)
-

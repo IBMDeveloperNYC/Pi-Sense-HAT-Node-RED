@@ -27,7 +27,7 @@ Node-RED is:
 
 ### (2) How to make a simple home Temerature and Humidty clock that shows local data as well as interacting with Node-RED on the IBM Cloud
 
-### (3) a simple approach to programming the senseHat ( a relatively inexpensive rasberry pi Cape )
+### (3) a simple approach to programming the senseHat
 <details><summary><strong>Learn More about the SenseHat</strong></summary>
  
  The sense hat is ...

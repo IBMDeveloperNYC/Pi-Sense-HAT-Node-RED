@@ -1,5 +1,5 @@
-import asyncio
 import sys
+from requests_futures.sessions import FuturesSession
 from time import sleep
 from colorLetter8x8 import *
 import requests
@@ -20,19 +20,21 @@ def getSec():
 def run(urls):
     t = getTimeStamp()
     start = getSec()
-
-    for url in urls:
-        print("about to call url")
-        print(url)
-
-        callNodeRED(url, {"temp":getTemp(),
+    data = {"temp":getTemp(),
                      "humidity":getHumidity(),
                      "longitude":getLongitude(),
                      "latitude":getLatitude(),
                      "elevation":getElevation(),
                      "sensorID":getSensorID(),
-                     "sensorLocalTime":getTimeStamp()
-                     })
+                     "sensorLocalTime":getTimeStamp()}
+
+
+    with FuturesSession(max_workers=2) as session:
+        for url in urls:
+            #print(url)
+            session.post(url, data)
+
+
 
     end = getSec()
     timeran = end - start
@@ -121,6 +123,7 @@ def createUrls(lol, urlList):
 if __name__ == '__main__':
 
     url_ = ["http://pmistrynoderedtest.mybluemix.net/sense-hat"]
+    #url_ = ["http://gsnodered.mybluemix.net/sense-hat"]
 
     try:
         lol = ch().readCSV("./utils/users.csv")
@@ -129,6 +132,7 @@ if __name__ == '__main__':
     except FileNotFoundError:
         pass
 
+    lol.append("http://gsnodered.mybluemix.net/sense-hat")
     displayTemp()
 
     run(url_)

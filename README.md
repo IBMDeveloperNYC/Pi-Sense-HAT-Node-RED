@@ -1,31 +1,29 @@
-# Make a Simple Raspberry Pi Weather Station Using IBM Cloud
+# Make a Simple Raspberry Pi Weather Dashboard Using IBM Cloud
 ![](./Images/SenseHat-NodeRED-flat.jpg)
 
-## Introduction
-In this hands on workshop you will learn 3 things:
+## Introduction 
+Node-RED is a wonderful tool that is used for prototyping and controling IoT devices.  Node Red is very easy to get started with and is a great tool for beginners who want to write and understand programming flow.
 
-### (1) The fundametals of Node-RED
+In this lab we will be using Node-RED on IBM Cloud to build a temperature and humidity dashboard. We will recieve temperature and humidity data from a Raspberry-Pi Sense hat and then use this data to create a dynamic real time dashboard that provides information about humidity and temprature in both farenheit, celsius. 
 
-<details><summary><strong>Learn More about Node-RED</strong></summary>
+**In this workshop you will learn :**
+
+**(1)** The fundametals of Node-RED
+
+<details><summary><strong>Learn More</strong></summary>
  
 ```text
-
 Node-RED is:
 
 * Low-code programming tool and framework for event-driven applications
 * a Programming tool for wiring together hardware devices (e.g. IoT), APIs and online services in new and interesting ways
 * provides a browser-based editor that makes it easy to wire together flows using the wide range of nodes in the palette that can be deployed to its runtime in a single-click.
-
 ```
-
 > For in depth information take a look at the [ official Node-RED website https://nodered.org/](https://nodered.org/)
-
 </details>
-
-### (2) How to make a simple home Temerature and Humidty clock that shows local data as well as interacting with Node-RED on the IBM Cloud
-
-### (3) a simple approach to programming the senseHat
-<details><summary><strong>Learn More about the SenseHat</strong></summary>
+ 
+**(2)** The fundamentals of working with the Raspberry-Pi Sense Hat 
+<details><summary><strong>Learn More</strong></summary>
  
  The sense hat is ...
  
@@ -38,6 +36,8 @@ dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla par
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 ```
 </details>
+
+**(3)** How to connect IoT device to IBM Cloud 
 
 
 ## prerequisites

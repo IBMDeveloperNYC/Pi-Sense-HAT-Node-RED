@@ -1,28 +1,50 @@
 import sys
+from requests_futures.sessions import FuturesSession
 from time import sleep
 from colorLetter8x8 import *
 import requests
 from sense_hat import SenseHat
 import datetime as dt
+from CsvHelper import CsvReader as ch
+
+lol = ch().readCSV("./utils/users.csv")
 from common import *
+import time
+
 sense = SenseHat()
 
-def run(url):
-    print("running")
+def getSec():
+    sec = time.mktime(dt.datetime.now().timetuple())
+    return sec
 
+def run(urls):
     t = getTimeStamp()
-    print(t)
-    callNodeRED(url, {"temp":getTemp(),
+    start = getSec()
+    data = {"temp":getTemp(),
                      "humidity":getHumidity(),
                      "longitude":getLongitude(),
                      "latitude":getLatitude(),
                      "elevation":getElevation(),
                      "sensorID":getSensorID(),
-                     "sensorLocalTime":getTimeStamp()
-                     })
+                     "sensorLocalTime":getTimeStamp()}
+
+
+    with FuturesSession(max_workers=2) as session:
+        for url in urls:
+            #print(url)
+            session.post(url, data)
 
 
 
+    end = getSec()
+    timeran = end - start
+    print("script took {} seconds".format(timeran))
+    displayText("{}".format(timeran))
+
+def displayText(txt):
+    sense.clear()
+    sense.show_message(txt)
+    sense.clear()
 
 def callNodeRED(url, data):
     try:
@@ -50,9 +72,15 @@ def mkLetter(C, X, O):
         sense.set_pixels(letter)
 
 def getTemp():
+    sense.clear()
+    temp = sense.get_temperature()
+    sense.clear()
+    return temp
+
+def displayTemp():
         sense.clear()
 
-        temp = sense.get_temperature()
+        temp = getTemp()
         sense.clear()
         bg = (0,0,0)
         c = (255,255,255)
@@ -82,11 +110,29 @@ def getHumidity():
     sense.clear()
     return sense.get_humidity()
 
+def createUrls(lol, urlList):
+    """ create urls off list of lists from users.csv"""
+
+    for user in lol:
+        firstName = user[0].strip()
+        lastName = user[1].strip()
+        url = "http://{}{}nodered.myblumeix.net/sense-hat".format(firstName[0].lower(), lastName[0].lower())
+        urlList.append(url)
+    return urlList
+
 if __name__ == '__main__':
-    url_ = "http://pmistrynoderedtest.mybluemix.net/sense-hat"
-    if len(sys.argv) != 2:
-        print("pass url to post data to, e.g. {}".format(url_))
-    else:
-        url_ = sys.argv[1]
+
+    url_ = ["http://pmistrynoderedtest.mybluemix.net/sense-hat"]
+    #url_ = ["http://gsnodered.mybluemix.net/sense-hat"]
+
+    try:
+        lol = ch().readCSV("./utils/users.csv")
+        lol = createUrls(lol, url_)
+
+    except FileNotFoundError:
+        pass
+
+    lol.append("http://gsnodered.mybluemix.net/sense-hat")
+    displayTemp()
 
     run(url_)

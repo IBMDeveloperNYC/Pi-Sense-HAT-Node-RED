@@ -11,10 +11,14 @@ In this lab we will be using Node-RED on IBM Cloud to build a temperature and hu
 **(1)** The fundametals of Node-RED
 
 <details><summary><strong>Learn More</strong></summary>
+
+Node-RED is a visual tool for wiring the Internet of Things. It is easy to connect devices, data and API’s (services). It can also be used for other types of applications to quickly assemble flows of services.
+
+Node-RED is available as open source and has been implemented bythe IBM Emerging Technology organization. Node-RED provides a browser-based flow editor that makes it easy to wire together flows using the wide range of nodes in the palette. Flows can be then deployed to the runtime in a single-click. While Node-Red is based on Node.js, JavaScript functions can be created within the editor using a rich text editor. A built-in library allows you to save useful functions, templates or flows for re-use.
+
+Node-RED is included in the Node-RED starter application in IBM Cloud but you can also deploy it as a stand alone Node.js application. Node-RED can not only be used for IoT applications, but it is a generic event-processing engine. For example, you can use it to listen to events from http, websockets, tcp, Twitter and more and store this data in databases without having to program much if at all. You can also use it for example to implement simple REST APIs. You can find many other sample flows on the Node-RED website.
  
 ```text
-Node-RED is:
-
 * Low-code programming tool and framework for event-driven applications
 * a Programming tool for wiring together hardware devices (e.g. IoT), APIs and online services in new and interesting ways
 * provides a browser-based editor that makes it easy to wire together flows using the wide range of nodes in the palette that can be deployed to its runtime in a single-click.

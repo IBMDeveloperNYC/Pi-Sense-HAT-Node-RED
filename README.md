@@ -8,7 +8,7 @@ In this lab we will be using Node-RED on IBM Cloud to build a temperature and hu
 
 **In this workshop you will learn :**
 
-**(1)** The fundametals of Node-RED
+**(1)** The fundametals of Node-RED and IBM Cloud 
 
 <details><summary><strong>Learn More</strong></summary>
 
@@ -24,24 +24,21 @@ Node-RED is included in the Node-RED starter application in IBM Cloud but you ca
 * provides a browser-based editor that makes it easy to wire together flows using the wide range of nodes in the palette that can be deployed to its runtime in a single-click.
 ```
 > For in depth information take a look at the [ official Node-RED website https://nodered.org/](https://nodered.org/)
+
 </details>
  
 **(2)** The fundamentals of working with the Raspberry-Pi Sense Hat 
 <details><summary><strong>Learn More</strong></summary>
  
- The sense hat is ...
- 
- ( a relatively inexpensive rasberry pi Cape )
- 
- ```text
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
-dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-```
-</details>
+ The [Raspberry Pi](https://www.raspberrypi.org/) is a low cost, credit-card sized computer that plugs into a computer monitor or TV, and uses a standard keyboard and mouse. It is a capable little device that enables people of all ages to explore computing, and to learn how to program in languages like Scratch and Python. It’s capable of doing everything you’d expect a desktop computer to do, from browsing the internet and playing high-definition video, to making spreadsheets, word-processing, and playing games.
 
-**(3)** How to connect IoT device to IBM Cloud 
+ In this lab we will be working with the Raspberry Pi as well as an accessory called the [Sense HAT Cape](https://projects.raspberrypi.org/en/projects/getting-started-with-the-sense-hat/3)
+
+ The Sense HAT is an add-on board for the Raspberry Pi, made especially for the Astro Pi competition. The board allows you to make measurements of temperature, humidity, pressure, and orientation, and to output information using its built-in LED matrix.
+
+ In this lab we will be using the Rasberry Pi and the Sense HAT to capture data on Temperature and Humidity which will then be displayed on a dashboard built on Node-RED on the IBM Cloud 
+ 
+</details>
 
 
 ## prerequisites

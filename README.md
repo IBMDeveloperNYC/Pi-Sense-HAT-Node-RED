@@ -159,4 +159,131 @@ Congrats!You can now move on to building a dashboard from this data!
 
 
 ### STEP 4: Building the Temparature and Humidity Function 
-In this step we will have to do some math to convert the temperature and humidity coming from the PI to Farenhe
+In this step we will have to do some math to convert the temperature and humidity coming from the PI to Farenheit and Celcius. The output from this function will include : 
+* Humidity 
+* Temperature - Farenheit 
+* Temperature - Celcuius 
+
+1. From the function category of nodes , drag the function node into the pannel. 
+2. Double click on the function node and add the following code : 
+``` 
+if( msg.payload === false ) {
+    return null;
+}
+    
+var msg1 = {};
+var msg2 = {};
+var msg3 = {};
+
+msg1.payload = Math.round(msg.payload.temp*1.00);
+msg1.topic = "Centigrade";
+msg2.payload = Math.round(((msg.payload.temp*1.00) * 9/5) + 32);
+msg2.topic = "Farenheit";
+msg3.payload = Math.round(msg.payload.humidity*1.00);
+msg3.topic = "Humidity";
+
+return [msg1, msg2, msg3];
+
+```
+> This code is outputing 3 messages from 3 variables `msg1` = Celcius , `msg2` = Farenheit , `msg3` = Humidity 
+3. Make sure the output of the function is 3 since the code is outputting 3 values that we will use to build our dashboard  
+4. Name the function `temp and humidity preparation`
+
+Your function properties should look like this : 
+![](./Images/FunctionProp.png)
+
+5. Once you have the function node setup you will want to connect it's outputs to debug nodes. 
+* Drag 3 Debug nodes to the editor and connect the nodes to the output of the function 
+* Name the Debugs as Centigrade , Farenfeit and Humidity 
+> 3 function variables : `msg1` = Celcius , `msg2` = Farenheit , `msg3` = Humidity 
+You should have something that looks like this : 
+![](./Images/FunctionDebug.png)
+
+### Step 5 : Adding Function Inputs 
+Your input to the function node will depend on wheather you connect to the **POST request nodes** that connect to the Raspberry Pi and Sense Hat or if you connect to the **Sense-HAT Simulator node** your 
+
+**Connecting to POST request nodes** 
+> This method assumes that you will send your Node-RED url and endpoint to the push.py code to recieve live updates from the Raspberry Pi and Sense Hat 
+*  Connect the output of the http input node named `sense-hat POST` to the input of the function node 
+You should see something like : 
+![](./Images/PostFlow2.png)
+
+Now on your debug pannel you should see the Farenheit , Centigrade and Humidity that is coming in live from the Raspberry-PI and Sense-HAT 
+![](./Images/Debug.jpg)
+
+Congrats! You are seeing real-live temerature and humidty data coming into the cloud from IoT device! 
+
+**Connecting to the Sense-HAT Simulator node** 
+> This method assumes that you will be using an input node with sample JSON to simulate the IoT Device 
+* Connect the output of the inject input node named `SenseHat Simulator` to the input of the function node 
+
+Your flow should look like this. Once you deploy, you can inject the value from the input node. You should be able to see  the Farenheit , Centigrade and Humidity that is simulated in your debug panel 
+![](./Images/Debug2.png)
+
+Congrats! You are seeing temerature and humidty data that is simulated from an IoT device! Feel free to change values on of humidity and temperature in the [tempData.json](./tempData.json) input to see how the function converts temperature to Celcius and Farienheit. 
+
+### Step 6 : Creating Dashboard 
+If you don't have dashboard nodes you will need to install them. 
+To do so go to: 
+* The hamburger menu on the top right hand side of your node-RED editor. 
+* Go to Manage Palette 
+* Go to Install Tab and search for `node-red-dashboard` 
+* Press install and shortly you will see dashboard nodes in your right hand node palette 
+
+*Steps to Create a Dashboard*  
+1. From the dashboard category of nodes , drag three guage nodes into the pannel. 
+2. Connect each guage node to the three outputs of the function nodes
+> Similar to the debug nodes in the previous stes 
+3. Edit Guage Nodes : 
+* Double click on the properties of 1 of the Guage Nodes 
+* Edit Group by clicking on the pencil icon 
+    * Give a Name  such as `Sense Hat Simulator` 
+    * Give a Tab name by clicking on pencil next to Tab Value . I called mine `SenseHAT-Dashboard` 
+    * Click Update and you should see : 
+     ![](./Images/DashboardProp.png)
+> This will be the Dashboard Name that will be used across all guage nodes in this flow 
+4. Give the Guage a lable such as : `Centigrade` 
+5. Give the Guage a value range : `0 to 100` 
+6. Repeate these steps for the two other Guage Nodes , except give the other two guages `Farenheit` and `Humidity` labels 
+
+You should see something like this : 
+**POST Node Connection Flow** 
+   ![](./Images/SenseHat-flow.jpg)
+
+**Simulator Connection Flow** 
+    ![](./Images/Simulator-flow.jpg)
+
+
+Now if you go to the Dashboard tab on the right hand side next to the debug and info tabs you should be able to launch your dashboard. Click on the little square with arrow in the right most corner to see Dashboard! 
+    ![](./Images/Dashboard.jpg)
+
+
+## Congratulations for completing this Lab! 
+Congrats for completing this lab. By the end of this lab you should be able to see how you can tie in Hardware IoT device such as a Sense-HAT Cape with a Raspberry Pi to send temperature and humidity data to Node-RED on the IBM Cloud 
+
+If you ever get stuck on any of these steps go ahead an import any of these solutions into your Node-RED editor. 
+
+*To Import* 
+Go to > Hamburger Menu > Imort > Clipboard 
+
+You can copy the JSON contents of either of these flows to see how the solutions were created in the steps above! 
+
+* [POST request Sense-HAT Flow](./SenseHat-flow.json)
+* [Sense-HAT Simulator Flow](./SenseHAT-Simulator-flow.json)
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+

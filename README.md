@@ -147,8 +147,16 @@ Congrats if you are able to see data in your debug panel! You can now move on to
 * Set Payload to JSON 
 * Copy JSON from [tempData.json](./tempData.json) and paste it into JSON input 
 > this will act as the JSON temperature and humidity data coming from the pi 
-*
-  
+* Name node `Sense-HAT Simulator` 
+3. Connect the `Sense-HAT Simulator` node to debug node and deploy 
+> Double click on debug node and set output to `complete msg object`
+
+Now when you click on the inject button you should see the data that the sense hat would simulate. 
+
+![](./Images/Simulator1.png)
+
+Congrats!You can now move on to building a dashboard from this data!
 
 
-##
+### STEP 4: Building the Temparature and Humidity Function 
+In this step we will have to do some math to convert the temperature and humidity coming from the PI to Farenhe

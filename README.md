@@ -1,6 +1,9 @@
 # Make a Simple Raspberry Pi Weather Dashboard Using IBM Cloud
 ![](./Images/SenseHat-NodeRED-flat.jpg)
 
+
+## Navigate easily to this repo: https://bit.ly/2rOwaGK
+
 ## Introduction 
 Node-RED is a wonderful tool that is used for prototyping and controling IoT devices.  Node Red is very easy to get started with and is a great tool for beginners who want to write and understand programming flow.
 

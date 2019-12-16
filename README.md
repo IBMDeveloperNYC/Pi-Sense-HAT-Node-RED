@@ -279,16 +279,15 @@ You can copy the JSON contents of either of these flows to see how the solutions
 * [Sense-HAT Simulator Flow](./SenseHAT-Simulator-flow.json)
 
 
-
 ### Appendix/Figures/Images
 
-![./Images/node-RED-ui-guages-reading-centigrade-14.png]
+![](./Images/node-RED-ui-guages-reading-centigrade-14.png)
 ***Figure 1: Node-RED Guages indicate it's Cold indoors***
 
-![./Images/node-RED-ui-guages-reading-centigrade-32.png]
+![](./Images/node-RED-ui-guages-reading-centigrade-32.png)
 ***Figure 2: Node-RED Guages indicate it's Warm indoors***
-
-![./Images/node-RED-ui-guages-reading-centigrade-63.png]
+ 
+![](./Images/node-RED-ui-guages-reading-centigrade-63.png)
 ***Figure 3: Node-RED Guages indicate it's Very Hot indoors***
 
 

@@ -4,7 +4,7 @@
 ### Navigate to this repo: https://bit.ly/2rOwaGK
 
 ## Introduction 
-Node-RED is a wonderful tool that is used for prototyping and interacting with IoT devices, like the Raspberry Pi.  Node-RED is very easy to get started with and is a great tool for beginners who want to write and understand programming flow.
+Node-RED is a wonderful tool that is used for prototyping and interacting with IoT devices, like the Raspberry Pi. It is a tool that is very easy to get started with and is a great for beginners who want to write and understand programming flow.
 
 **In this lab we will be using Node-RED on IBM Cloud to build a temperature and humidity dashboard.** We will receIve temperature and humidity data from a Raspberry-Pi Sense hat and then use this data to create a dynamic real time dashboard that provides information about humidity and temprature metrics that the SenseHat provides. 
 
@@ -38,13 +38,13 @@ Node-RED is included in the Node-RED starter application in [IBM Cloud](https://
 ## Prerequisite : Create IBM Cloud Account 
 
 In order to complete this workshop you will need to create an IBM Cloud account.  
-1. [Sign up for an account here](https://ibm.biz/BdzgtA)
+1. [Sign up for an account here](https://ibm.biz/Bdzk59)
 2. Verify your account by clicking on the link in the email sent to you
 
 
 ## Hardware Setup : 
 
-The Raspberry Pi with the Sense HAT allows you to make measurements of temperature, humidity, pressure, and orientation, and to output information using its built-in LED matrix. We will use it to publish Temperature(Centigrade) and Humidity metrics to [Node-RED](https://nodered.org/) on the [IBM Cloud](https://cloud.ibm.com) - free account! It will also display the Temperature(Centigrade) to the matrix screen everytime your `cron` job runs
+The Raspberry Pi with the Sense HAT allows you to make measurements of temperature, humidity, pressure, and orientation, and to output information using its built-in LED matrix. We will use it to publish Temperature(Centigrade) and Humidity metrics to [Node-RED](https://nodered.org/) on the [IBM Cloud](https://ibm.biz/Bdzk59) - free account! It will also display the Temperature(Centigrade) to the matrix screen everytime your `cron` job runs
 
 ### Step 1 : 
 * Setting up Raspbian on your Pi is easiest with [NOOBS](https://www.raspberrypi.org/documentation/installation/noobs.md)

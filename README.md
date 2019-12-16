@@ -1,5 +1,5 @@
 # Make a Simple Raspberry Pi Weather Dashboard Using IBM Cloud
-![Pi SenseHat rig](./Images/SenseHat-Pi-Temperature-Clock.jpg)
+![Pi SenseHat rig](./Images/SenseHat-NodeRED-flat.jpg)
 
 ### Navigate to this repo: https://bit.ly/2rOwaGK
 

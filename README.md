@@ -1,17 +1,19 @@
 # Make a Simple Raspberry Pi Weather Dashboard Using IBM Cloud
-![](./Images/SenseHat-NodeRED-flat.jpg)
+![Pi SenseHat rig](./Images/SenseHat-Pi-Temperature-Clock.jpg)
 
 
-## Navigate easily to this repo: https://bit.ly/2rOwaGK
+
+![./Images/node-RED-ui-guages-reading-centigrade-63.png]
+## Navigate to this repo: https://bit.ly/2rOwaGK
 
 ## Introduction 
-Node-RED is a wonderful tool that is used for prototyping and controling IoT devices.  Node Red is very easy to get started with and is a great tool for beginners who want to write and understand programming flow.
+Node-RED is a wonderful tool that is used for prototyping and interacting with IoT devices, like the Raspberry Pi.  Node-RED is very easy to get started with and is a great tool for beginners who want to write and understand programming flow.
 
-**In this lab we will be using Node-RED on IBM Cloud to build a temperature and humidity dashboard.** We will recieve temperature and humidity data from a Raspberry-Pi Sense hat and then use this data to create a dynamic real time dashboard that provides information about humidity and temprature in both farenheit, celsius. 
+**In this lab we will be using Node-RED on IBM Cloud to build a temperature and humidity dashboard.** We will receIve temperature and humidity data from a Raspberry-Pi Sense hat and then use this data to create a dynamic real time dashboard that provides information about humidity and temprature metrics that the SenseHat provides. 
 
 ### In this workshop you will learn :
 
-**(1)** The fundametals of Node-RED and IBM Cloud 
+**(1)** The fundamentals of Node-RED and IBM Cloud 
 
 <details><summary><strong>Learn More</strong></summary>
 
@@ -276,7 +278,16 @@ You can copy the JSON contents of either of these flows to see how the solutions
 
 
 
+### Appendix/Figures/Images
 
+![./Images/node-RED-ui-guages-reading-centigrade-14.png]
+***Figure 1: Node-RED Guages indicate it's Cold indoors***
+
+![./Images/node-RED-ui-guages-reading-centigrade-32.png]
+***Figure 2: Node-RED Guages indicate it's Warm indoors***
+
+![./Images/node-RED-ui-guages-reading-centigrade-63.png]
+***Figure 3: Node-RED Guages indicate it's Very Hot indoors***
 
 
 

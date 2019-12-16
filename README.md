@@ -135,7 +135,7 @@ Take the url for your NodeRED instance and append the `/sense-hat`
 
 You should have something like this : 
 ```
-https://<<yourNodeRedSubDomainname>>.mybluemix.net/sense-hat
+https://<lowercase_firstinitial><lowercase_lastinitial>nodered.mybluemix.net/sense-hat
 ```
 > <<yourNodeRedSubDomainname>> is the name you gave your Node-RED instance. It can be found in the url of your Node-RED editor 
 

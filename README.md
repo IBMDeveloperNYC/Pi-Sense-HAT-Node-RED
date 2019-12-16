@@ -86,7 +86,12 @@ Once your hardware is set up , the next thing we are going to do is set up Node-
 1. Log in to your [IBM Cloud account](https://ibm.biz/Bdzk59)
 2. Click on "Catalog" at the top-right corner
 3. Search and select "Node-RED Starter" 
-4. Give a unique name to your app and click "Create"
+4. Give  name to your app and click "Create" --> **We Suggest** 
+`<lowercase_firstinitial><lowercase_lastinitial>nodered`
+```For example : 
+   User Name - James Bond 
+   Node-RED App Name  - jbnodered
+```
 5. Once your app is created you'll be able to access it through the [resource list](https://cloud.ibm.com/resources)
 
 Click the 'Visit App URL' option to access your Node-RED instance in your browser. (click next for the steps displayed until you see the option 'Go to your Node-Red Flow Editor', and select "Not recommended: Allow anyone to access the editor and make changes" for the second step. 

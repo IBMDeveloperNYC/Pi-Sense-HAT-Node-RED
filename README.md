@@ -87,7 +87,7 @@ Once your hardware is set up , the next thing we are going to do is set up Node-
 2. Click on "Catalog" at the top-right corner
 3. Search and select "Node-RED Starter" 
 4. Give  name to your app and click "Create" --> **We Suggest** 
-`<lowercase_firstinitial><lowercase_lastinitial>nodered`
+`<<lowercase_firstinitial>><<lowercase_lastinitial>>nodered`
 ```For example : 
    User Name - James Bond 
    Node-RED App Name  - jbnodered
@@ -135,7 +135,7 @@ Take the url for your NodeRED instance and append the `/sense-hat`
 
 You should have something like this : 
 ```
-https://<lowercase_firstinitial><lowercase_lastinitial>nodered.mybluemix.net/sense-hat
+https://<<lowercase_firstinitial>><<lowercase_lastinitial>>nodered.mybluemix.net/sense-hat
 ```
 > <<yourNodeRedSubDomainname>> is the name you gave your Node-RED instance. It can be found in the url of your Node-RED editor 
 

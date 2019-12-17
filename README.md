@@ -290,6 +290,8 @@ You can copy the JSON contents of either of these flows to see how the solutions
 ![](./Images/node-RED-ui-guages-reading-centigrade-63.png)
 ***Figure 3: Node-RED Guages indicate it's Very Hot indoors***
 
+![](https://github.com/IBMDeveloperNYC/Pi-Sense-HAT-Node-RED/blob/master/Images/SenseHat-Pi-Temperature-Clock.jpg)
+***Figure 4: SenseHAT mounted on Raspberry Pi 3 using plexiglass housing with brass spacers***
 
 
 

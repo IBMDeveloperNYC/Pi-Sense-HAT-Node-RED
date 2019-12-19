@@ -1,0 +1,98 @@
+[
+    {
+        "id": "8ecaa35a.b47ac8",
+        "type": "tab",
+        "label": "get request returns json",
+        "disabled": false,
+        "info": "simple GET request to /hello-json \n\ncurl http://yournodered.us-south.cf.appdomain.cloud/hello-json\n\n{ \"Hello\": \"World\" }"
+    },
+    {
+        "id": "2cac9d90.9efe7a",
+        "type": "http in",
+        "z": "8ecaa35a.b47ac8",
+        "name": "",
+        "url": "/hello-json",
+        "method": "get",
+        "swaggerDoc": "",
+        "x": 203.3461456298828,
+        "y": 171.3076934814453,
+        "wires": [
+            [
+                "7476e3e.b4f6c9c"
+            ]
+        ]
+    },
+    {
+        "id": "7476e3e.b4f6c9c",
+        "type": "template",
+        "z": "8ecaa35a.b47ac8",
+        "name": "page",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{ \"Hello\": \"World\" }",
+        "x": 287.9615173339844,
+        "y": 225.92306518554688,
+        "wires": [
+            [
+                "21a0955b.975c42"
+            ]
+        ]
+    },
+    {
+        "id": "21a0955b.975c42",
+        "type": "change",
+        "z": "8ecaa35a.b47ac8",
+        "name": "Set Headers",
+        "rules": [
+            {
+                "t": "set",
+                "p": "headers",
+                "pt": "msg",
+                "to": "{}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "headers.content-type",
+                "pt": "msg",
+                "to": "application/json",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 357.9615173339844,
+        "y": 278.23077392578125,
+        "wires": [
+            [
+                "3a8d2ffd.b825f8"
+            ]
+        ]
+    },
+    {
+        "id": "3a8d2ffd.b825f8",
+        "type": "http response",
+        "z": "8ecaa35a.b47ac8",
+        "name": "response",
+        "statusCode": "200",
+        "headers": {},
+        "x": 434.884521484375,
+        "y": 322.84613037109375,
+        "wires": []
+    },
+    {
+        "id": "6143aa18.595614",
+        "type": "comment",
+        "z": "8ecaa35a.b47ac8",
+        "name": "Simple get returns json",
+        "info": "",
+        "x": 213.0768585205078,
+        "y": 128.4615478515625,
+        "wires": []
+    }
+]

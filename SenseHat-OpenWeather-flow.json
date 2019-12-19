@@ -1,0 +1,181 @@
+[
+    {
+        "id": "cfe31925.99a78",
+        "type": "tab",
+        "label": "SenseHAT with OpenWeatherMap",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "7a80797b.e5c5e8",
+        "type": "http in",
+        "z": "cfe31925.99a78",
+        "name": "sense-hat POST 2",
+        "url": "/sense-hat2",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 349.23077392578125,
+        "y": 130,
+        "wires": [
+            [
+                "c611e595.2bb54",
+                "37d411c5.d91c26"
+            ]
+        ]
+    },
+    {
+        "id": "c611e595.2bb54",
+        "type": "debug",
+        "z": "cfe31925.99a78",
+        "name": "raw POST",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 555,
+        "y": 60,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "b9cfb345.be0e2",
+        "type": "http response",
+        "z": "cfe31925.99a78",
+        "name": "",
+        "statusCode": "200",
+        "headers": {},
+        "x": 1075,
+        "y": 280,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "d4813152.37b5a",
+        "type": "inject",
+        "z": "cfe31925.99a78",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 206.1538461538461,
+        "y": 236.1538461538461,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "37d411c5.d91c26",
+        "type": "function",
+        "z": "cfe31925.99a78",
+        "name": "construct open weather map uri",
+        "func": "//https://stackoverflow.com/questions/34504325/node-red-no-response-object\nvar uri = [\"http://api.openweathermap.org/data/2.5/weather?lat=\", msg.payload.latitude, \"&lon=\", msg.payload.longitude, \"&APPID=\",msg.payload.key];\nvar dev_url = uri.join('');\n\nvar request_ = msg.req;\nvar response_ = msg.res;\n\nvar msg2 = {\n \"method\" : \"GET\",\n \"url\" : dev_url,\n \"req\" : request_,\n \"res\": response_\n};\n \nreturn msg2;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 580,
+        "y": 320,
+        "wires": [
+            [
+                "7bf49927.1fef48",
+                "30a46ca.5855494"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "2de02e69.b03e1a",
+        "type": "debug",
+        "z": "cfe31925.99a78",
+        "name": "URI for open weather map API",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 760,
+        "y": 400,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "7bf49927.1fef48",
+        "type": "http request",
+        "z": "cfe31925.99a78",
+        "name": "call open weather service",
+        "method": "use",
+        "ret": "obj",
+        "paytoqs": true,
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 640,
+        "y": 460,
+        "wires": [
+            [
+                "2de02e69.b03e1a",
+                "85419393.5d94a"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "30a46ca.5855494",
+        "type": "debug",
+        "z": "cfe31925.99a78",
+        "name": "new msg altered",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 740,
+        "y": 360,
+        "wires": [],
+        "l": false
+    },
+    {
+        "id": "85419393.5d94a",
+        "type": "function",
+        "z": "cfe31925.99a78",
+        "name": "",
+        "func": "var newMsg = { payload: msg.payload };\n//return [msg, newMsg];\n\n//newMsg.user = msg.req.body[\"user\"];\nnewMsg.req  = msg.req;\nnewMsg.res = msg.res;\n\nreturn newMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 910,
+        "y": 380,
+        "wires": [
+            [
+                "b9cfb345.be0e2",
+                "89e5ac58.ee2ec8"
+            ]
+        ]
+    },
+    {
+        "id": "89e5ac58.ee2ec8",
+        "type": "debug",
+        "z": "cfe31925.99a78",
+        "name": "oiy vey",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 1080,
+        "y": 400,
+        "wires": [],
+        "l": false
+    }
+]
+

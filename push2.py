@@ -1,4 +1,4 @@
-import pdb
+import math
 import json 
 import sys
 from time import sleep
@@ -14,6 +14,7 @@ import argparse
 import pprint
 
 sense = SenseHat()
+SCROLL_SPEED = 0.2
 
 def getSec():
     sec = time.mktime(dt.datetime.now().timetuple())
@@ -39,9 +40,9 @@ def run(urls, openWeatherAPIkey):
         return_json_ = ret.json()
         pp.pprint(return_json_)
         #pdb.set_trace()
-        msg_ = "Outdoors in {} weather is {}".format(return_json_["name"], return_json_["weather"][0]["description"])
-        print(msg_)
-        displayText(msg_)
+
+        msg_ = "OUTDOORS it is {} degrees celcius & {}".format(return_json_["outdoors"]["celcius"], return_json_["weather"][0]["description"])
+        displayText(msg_, SCROLL_SPEED)
     except Exception as postex:
         print(postex)
 
@@ -68,9 +69,9 @@ def getMetaOffLocalPiIP():
     """ may not be very accurate """
     return ip_meta()
     
-def displayText(txt):
+def displayText(txt, speed):
     sense.clear()
-    sense.show_message(txt)
+    sense.show_message(txt , scroll_speed = speed)
     sense.clear()
 
 def callNodeRED(url, data):
@@ -131,6 +132,10 @@ def displayTemp():
         mkLetter(L,c,bg)
         sleep(2)
         sense.clear()
+
+        msg_ = "{} degrees celcius".format(math.floor(temp))
+        sleep(4)
+        displayText(msg_, SCROLL_SPEED)
         return temp
 
 def getHumidity():

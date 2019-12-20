@@ -8,6 +8,13 @@ Node-RED is a wonderful tool that is used for prototyping and interacting with I
 
 **In this lab we will be using Node-RED on IBM Cloud to build a temperature and humidity dashboard.** We will receIve temperature and humidity data from a Raspberry-Pi Sense hat and then use this data to create a dynamic real time dashboard that provides information about humidity and temprature metrics that the SenseHat provides. 
 
+On the Pi we will also use [eXTReMe-IP-LOOKUP.COM](https://extreme-ip-lookup.com/) to get the local ipaddress as well as get the Pi's unique serial number to pass along to the Node-RED flow where we will call the [openweathermap API](https://openweathermap.org/api) to get localized outdoor weather conditions to enhance your desktop weather reporting device.  You will need to get a [free account and API key](https://openweathermap.org/price) to get 60 calls per minute which is more than enough to suit this projects needs.  Once you have the API key you will pass it as an argument to the push2.py file in this fashion with your own key.
+
+``` bash
+python3 push2.py --key "eg906dbad50684566500e8ab23d81a8f"
+
+```
+
 ### In this workshop you will learn :
 
 **(1)** The fundamentals of Node-RED and IBM Cloud 
@@ -59,8 +66,8 @@ The Raspberry Pi with the Sense HAT allows you to make measurements of temperatu
 sudo su
 touch /home/pi/sense.log
 crontab -e
-# add the following line to POST updates every 5 or any interval you like, I chose 5 minutes
-echo "5 * * * * /usr/bin/python /home/pi/dev/pi-hat-node-red/push.py >> /home/pi/sense.log 2>&1"
+# add the following line to POST updates every 15 minutes or any interval you like
+echo "*/15 * * * * /usr/bin/python3 /home/pi/dev/Pi-Sense-HAT-Node-RED/push2.py >> /home/pi/sense.log 2>&1"
 # restart cron
 systemctl restart cron
 
@@ -69,11 +76,11 @@ exit
 mkdir -p /home/pi/dev && cd /home/pi/dev
 
 #clone repo
-git clone https://github.com/Grant-Steinfeld/pi-hat-node-red.git
-cd pi-hat-node-red
+git clone https://github.com/Grant-Steinfeld/Pi-Sense-HAT-Node-RED.git
+cd Pi-Sense-HAT-Node-RED
 ls
-stat push.py
-echo "push.py should be here"
+stat push2.py
+echo "push2.py should be here"
 ```
 
 ## Node-RED Setup 
@@ -107,7 +114,7 @@ Click the 'Visit App URL' option to access your Node-RED instance in your browse
 > Double clicking on the node lets you edit the node's properties. 
 2. Double click on the http node to edit it's properties 
  * Set Method to Post 
- * Set url endpoint to `/sense-hat` 
+ * Set url endpoint to `/sense-hat2` 
  * Set name to `Sense-HAT POST` 
 
 You should have this : 
@@ -135,7 +142,7 @@ Take the url for your NodeRED instance and append the `/sense-hat`
 
 You should have something like this : 
 ```
-https://<<lowercase_firstinitial>><<lowercase_lastinitial>>nodered.mybluemix.net/sense-hat
+https://<<lowercase_firstinitial>><<lowercase_lastinitial>>nodered.mybluemix.net/sense-hat2
 ```
 > <<yourNodeRedSubDomainname>> is the name you gave your Node-RED instance. It can be found in the url of your Node-RED editor 
 

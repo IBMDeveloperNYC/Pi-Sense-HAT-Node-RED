@@ -15,8 +15,8 @@
         "method": "post",
         "upload": false,
         "swaggerDoc": "",
-        "x": 349.23077392578125,
-        "y": 130,
+        "x": 162.23077392578125,
+        "y": 186,
         "wires": [
             [
                 "c611e595.2bb54",
@@ -35,8 +35,8 @@
         "tostatus": false,
         "complete": "true",
         "targetType": "full",
-        "x": 555,
-        "y": 60,
+        "x": 356,
+        "y": 187,
         "wires": [],
         "l": false
     },
@@ -44,31 +44,12 @@
         "id": "b9cfb345.be0e2",
         "type": "http response",
         "z": "cfe31925.99a78",
-        "name": "",
+        "name": "Response",
         "statusCode": "200",
         "headers": {},
-        "x": 1075,
-        "y": 280,
+        "x": 869,
+        "y": 325,
         "wires": [],
-        "l": false
-    },
-    {
-        "id": "d4813152.37b5a",
-        "type": "inject",
-        "z": "cfe31925.99a78",
-        "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 206.1538461538461,
-        "y": 236.1538461538461,
-        "wires": [
-            []
-        ],
         "l": false
     },
     {
@@ -79,8 +60,8 @@
         "func": "//https://stackoverflow.com/questions/34504325/node-red-no-response-object\nvar uri = [\"http://api.openweathermap.org/data/2.5/weather?lat=\", msg.payload.latitude, \"&lon=\", msg.payload.longitude, \"&APPID=\",msg.payload.key];\nvar dev_url = uri.join('');\n\nvar request_ = msg.req;\nvar response_ = msg.res;\n\nvar msg2 = {\n \"method\" : \"GET\",\n \"url\" : dev_url,\n \"req\" : request_,\n \"res\": response_\n};\n \nreturn msg2;",
         "outputs": 1,
         "noerr": 0,
-        "x": 580,
-        "y": 320,
+        "x": 360,
+        "y": 229,
         "wires": [
             [
                 "7bf49927.1fef48",
@@ -100,8 +81,8 @@
         "tostatus": false,
         "complete": "true",
         "targetType": "full",
-        "x": 760,
-        "y": 400,
+        "x": 468,
+        "y": 326,
         "wires": [],
         "l": false
     },
@@ -118,8 +99,8 @@
         "persist": false,
         "proxy": "",
         "authType": "",
-        "x": 640,
-        "y": 460,
+        "x": 369,
+        "y": 286,
         "wires": [
             [
                 "2de02e69.b03e1a",
@@ -139,8 +120,8 @@
         "tostatus": false,
         "complete": "true",
         "targetType": "full",
-        "x": 740,
-        "y": 360,
+        "x": 452,
+        "y": 229,
         "wires": [],
         "l": false
     },
@@ -148,12 +129,12 @@
         "id": "85419393.5d94a",
         "type": "function",
         "z": "cfe31925.99a78",
-        "name": "",
-        "func": "var newMsg = { payload: msg.payload };\n//return [msg, newMsg];\n\n//newMsg.user = msg.req.body[\"user\"];\nnewMsg.req  = msg.req;\nnewMsg.res = msg.res;\n\nreturn newMsg;",
+        "name": "prep new message with kelvin conversions",
+        "func": "var kelvin_ = msg.payload.main.temp;\nvar celcius_ = kelvin_ - 273.15;\nvar farenheit_ = (kelvin_ - 273.15) * 9/5 + 32;\nmsg.payload.outdoors = {celcius: Math.floor(celcius_), farenheit: Math.floor(farenheit_), kelvin: kelvin_};\n\nvar newMsg = { payload: msg.payload };\n//return [msg, newMsg];\n\n//newMsg.user = msg.req.body[\"user\"];\nnewMsg.req  = msg.req;\nnewMsg.res = msg.res;\n\nreturn newMsg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 910,
-        "y": 380,
+        "x": 616,
+        "y": 285,
         "wires": [
             [
                 "b9cfb345.be0e2",
@@ -165,17 +146,16 @@
         "id": "89e5ac58.ee2ec8",
         "type": "debug",
         "z": "cfe31925.99a78",
-        "name": "oiy vey",
+        "name": "prepped newMsg",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "true",
         "targetType": "full",
-        "x": 1080,
-        "y": 400,
+        "x": 866,
+        "y": 285,
         "wires": [],
         "l": false
     }
 ]
-

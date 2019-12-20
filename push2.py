@@ -41,7 +41,7 @@ def run(urls, openWeatherAPIkey):
         pp.pprint(return_json_)
         #pdb.set_trace()
 
-        msg_ = "OUTDOORS it is {} degrees celcius & {}".format(return_json_["outdoors"]["celcius"], return_json_["weather"][0]["description"])
+        msg_ = "OUTDOORS it is {} degrees celcius and {}".format(return_json_["outdoors"]["celcius"], return_json_["weather"][0]["description"])
         displayText(msg_, SCROLL_SPEED)
     except Exception as postex:
         print(postex)

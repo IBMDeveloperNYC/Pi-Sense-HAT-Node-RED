@@ -38,13 +38,16 @@ Node-RED is included in the Node-RED starter application in [IBM Cloud](https://
 ## Prerequisite : Create IBM Cloud Account 
 
 In order to complete this workshop you will need to create an IBM Cloud account.  
-1. [Sign up for an account here](https://ibm.biz/Bdzk59)
+
+1. [Sign up for an account here](https://ibm.biz/BdqFbD)
+
+
 2. Verify your account by clicking on the link in the email sent to you
 
 
 ## Hardware Setup : 
 
-The Raspberry Pi with the Sense HAT allows you to make measurements of temperature, humidity, pressure, and orientation, and to output information using its built-in LED matrix. We will use it to publish Temperature(Centigrade) and Humidity metrics to [Node-RED](https://nodered.org/) on the [IBM Cloud](https://ibm.biz/Bdzk59) - free account! It will also display the Temperature(Centigrade) to the matrix screen everytime your `cron` job runs
+The Raspberry Pi with the Sense HAT allows you to make measurements of temperature, humidity, pressure, and orientation, and to output information using its built-in LED matrix. We will use it to publish Temperature(Centigrade) and Humidity metrics to [Node-RED](https://nodered.org/) on the [IBM Cloud](https://ibm.biz/BdqFbD) - free account! It will also display the Temperature(Centigrade) to the matrix screen everytime your `cron` job runs
 
 ### Step 1 : 
 * Setting up Raspbian on your Pi is easiest with [NOOBS](https://www.raspberrypi.org/documentation/installation/noobs.md)
@@ -69,8 +72,8 @@ exit
 mkdir -p /home/pi/dev && cd /home/pi/dev
 
 #clone repo
-git clone https://github.com/Grant-Steinfeld/pi-hat-node-red.git
-cd pi-hat-node-red
+git clone https://github.com/IBMDeveloperNYC/Pi-Sense-HAT-Node-RED
+cd Pi-Sense-HAT-Node-RED
 ls
 stat push.py
 echo "push.py should be here"

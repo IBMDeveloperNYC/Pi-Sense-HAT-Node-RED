@@ -86,7 +86,7 @@ Once your hardware is set up , the next thing we are going to do is set up Node-
 
 
 ### STEP 1 : Run Node-RED using IBM Cloud 
-1. Log in to your [IBM Cloud account](https://ibm.biz/Bdzk59)
+1. Log in to your [IBM Cloud account](https://ibm.biz/BdqFbD)
 2. Click on "Catalog" at the top-right corner
 3. Search and select "Node-RED Starter" 
 4. Give  name to your app and click "Create" --> **We Suggest** 
